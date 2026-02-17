@@ -26,6 +26,7 @@ import {
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import type { Client, Workspace, Document } from "@/lib/supabase";
+import { getClientById, getClientWorkspace } from "@/lib/database";
 import WorkspaceManager from "@/components/WorkspaceManager";
 
 // Mapeamento de ícones por categoria
@@ -61,7 +62,6 @@ export default function ClientWorkspacePage() {
     async function loadClientData() {
         try {
             setLoading(true);
-            const { getClientById, getClientWorkspace } = await import('@/lib/database');
 
             // Carregar cliente
             const clientData = await getClientById(clientId);
@@ -72,9 +72,9 @@ export default function ClientWorkspacePage() {
             setWorkspaces(workspaceData as any);
 
             // Expandir as primeiras 2 pastas por padrão
-            if (workspaceData.length > 0) {
+            if (workspaceData && workspaceData.length > 0) {
                 setExpandedFolders([
-                    workspaceData[0].folder_name,
+                    workspaceData[0]?.folder_name,
                     workspaceData[1]?.folder_name
                 ].filter(Boolean));
             }
@@ -119,7 +119,7 @@ export default function ClientWorkspacePage() {
         );
     }
 
-    const totalDocuments = workspaces.reduce((acc, ws) => acc + ws.documents.length, 0);
+    const totalDocuments = workspaces.reduce((acc, ws) => acc + (ws.documents?.length || 0), 0);
 
     return (
         <div className="max-w-7xl mx-auto space-y-8 pb-20">
@@ -243,7 +243,7 @@ export default function ClientWorkspacePage() {
                                             {workspace.folder_name}
                                         </span>
                                         <span className="ml-auto text-[9px] font-bold text-slate-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                                            {workspace.documents.length} itens
+                                            {(workspace.documents?.length || 0)} itens
                                         </span>
                                     </button>
 
@@ -255,12 +255,12 @@ export default function ClientWorkspacePage() {
                                             exit={{ opacity: 0, height: 0 }}
                                             className="ml-6 pl-6 border-l-2 border-brand-slate/5 space-y-1 mt-1"
                                         >
-                                            {workspace.documents.length === 0 && (
+                                            {(!workspace.documents || workspace.documents.length === 0) && (
                                                 <div className="p-3 text-slate-400 text-xs">
                                                     Nenhum documento nesta pasta.
                                                 </div>
                                             )}
-                                            {workspace.documents.map((doc) => (
+                                            {workspace.documents?.map((doc) => (
                                                 <Link
                                                     key={doc.id}
                                                     href={`/admin/clients/${params.id}/documents/${doc.id}`}
