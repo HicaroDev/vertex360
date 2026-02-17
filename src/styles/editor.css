@@ -1,0 +1,176 @@
+/* Estilos de Estrutura */
+.ProseMirror {
+    outline: none !important;
+    min-height: 500px;
+}
+
+/* 1. Toggle List (Notion Style) */
+.details-wrapper {
+    margin: 0.5rem 0;
+    padding: 0;
+    border: none !important;
+}
+
+.details-wrapper summary {
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    list-style: none !important;
+    display: flex !important;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.375rem;
+    transition: background 0.15s ease;
+}
+
+.details-wrapper summary:hover {
+    background: rgba(55, 53, 47, 0.08);
+}
+
+.details-wrapper summary::before {
+    content: "▶";
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+    color: #64748b;
+    display: inline-block;
+}
+
+.details-wrapper[open]>summary::before {
+    transform: rotate(90deg);
+}
+
+/* Área de Conteúdo do Toggle (Aninhamento) */
+[data-type="detailsContent"] {
+    padding-left: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+    border-left: 2px solid rgba(0, 0, 0, 0.05);
+    /* Linha sutil de aninhamento */
+}
+
+/* Permitir Toggles dentro de Toggles com indentação */
+.details-wrapper .details-wrapper {
+    margin-left: 0.5rem;
+}
+
+/* Placeholder para área vazia dentro do Toggle */
+[data-type="detailsContent"]:empty::before {
+    content: "Vazio. Clique para adicionar conteúdo...";
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-style: italic;
+    pointer-events: none;
+}
+
+/* 2. Listas (Bullet e Ordered) - Restauradas */
+.ProseMirror ul.bullet-list,
+.ProseMirror ul:not([data-type="taskList"]) {
+    list-style-type: disc !important;
+    padding-left: 1.5rem !important;
+    margin: 1rem 0 !important;
+}
+
+.ProseMirror ol.ordered-list {
+    list-style-type: decimal !important;
+    padding-left: 1.5rem !important;
+    margin: 1rem 0 !important;
+}
+
+.ProseMirror li {
+    display: list-item !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* 3. Lista de Tarefas */
+.ProseMirror ul[data-type="taskList"] {
+    list-style: none !important;
+    padding: 0 !important;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+    display: flex !important;
+    list-style: none !important;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul[data-type="taskList"] li input[type="checkbox"] {
+    margin-top: 0.25rem;
+    cursor: pointer;
+}
+
+/* Tarefa Concluída (Riscada e Cinza) */
+.ProseMirror ul[data-type="taskList"] li[data-checked="true"]>div {
+    text-decoration: line-through;
+    color: #94a3b8;
+    /* Cinza esmaecido */
+    transition: all 0.2s ease;
+}
+
+/* 4. Tabelas */
+.ProseMirror table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+    border: 1px solid #e2e8f0;
+    padding: 0.75rem 1rem;
+    position: relative;
+}
+
+/* Seleção de Tabela Criativa (Notion) */
+.ProseMirror .selectedCell:after {
+    z-index: 2;
+    position: absolute;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(200, 200, 255, 0.2);
+    pointer-events: none;
+}
+
+/* 5. Headings */
+.ProseMirror h1 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 2rem 0 !important;
+    color: #0f172a !important;
+}
+
+.ProseMirror h2 {
+    font-size: 2rem !important;
+    font-weight: 700 !important;
+    margin: 1.75rem 0 !important;
+    color: #1e293b !important;
+}
+
+.ProseMirror h3 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin: 1.5rem 0 !important;
+    color: #334155 !important;
+}
+
+/* 6. Bloco de Código */
+.ProseMirror pre {
+    background: #0f172a !important;
+    color: #f8fafc !important;
+    padding: 1.5rem !important;
+    border-radius: 0.5rem !important;
+    font-family: monospace !important;
+}
+
+/* 7. Placeholder */
+.ProseMirror p.is-editor-empty:first-child::before {
+    content: attr(data-placeholder);
+    float: left;
+    color: #adb5bd;
+    pointer-events: none;
+    height: 0;
+}
