@@ -1,3 +1,4 @@
+# Optimized Dockerfile for Next.js Vertex360
 # Base image
 FROM node:20-alpine AS base
 
