@@ -96,7 +96,7 @@ export default function DocumentEditor({
                 }
             }),
             Color,
-            FontSize,
+            FontSize as any,
             Details.configure({ persist: true, HTMLAttributes: { class: 'details-wrapper' } }),
             DetailsSummary,
             DetailsContent,
