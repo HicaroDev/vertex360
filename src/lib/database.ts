@@ -3,6 +3,8 @@ import { supabase } from './supabase';
 export async function testConnection() {
     try {
         // Testa conexão básica
+        if (!supabase) return false;
+
         const { data, error } = await supabase
             .from('clients')
             .select('count')
