@@ -38,16 +38,24 @@ export async function getClients() {
 }
 
 export async function getClientWorkspace(clientId: string) {
+    if (!supabase) {
+        console.error('❌ Supabase client not initialized');
+        return [];
+    }
+
     // Busca as pastas do workspace do cliente
     const { data: folders, error: foldersError } = await supabase
         .from('workspaces')
         .select('*')
-        .eq('client_id', clientId)
-        .order('order_position', { ascending: true })
-        .order('folder_name', { ascending: true });
+        .eq('client_id', clientId);
 
     if (foldersError) {
-        console.error('Erro ao buscar workspaces:', foldersError);
+        console.error('❌ Erro Supabase (Workspaces):', foldersError.message || foldersError);
+        return [];
+    }
+
+    if (!folders || folders.length === 0) {
+        console.warn('⚠️ Nenhum workspace encontrado para o cliente:', clientId);
         return [];
     }
 
