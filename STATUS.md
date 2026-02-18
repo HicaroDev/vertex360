@@ -1,6 +1,6 @@
 # 📊 Status do Projeto RV Portal
 
-**Última Atualização**: 2026-02-16 20:40
+**Última Atualização**: 2026-02-17 22:45
 
 ---
 
@@ -114,12 +114,17 @@
 - [x] Página de criação de documento (`/documents/new`)
 - [x] Página de edição de documento (`/documents/[docId]`)
 - [x] Navegação integrada na página de detalhes do cliente
+- [x] **Reordenação de Workspaces (Drag & Drop)** ⭐ NOVO!
+- [x] **Salvamento em Lote (Bulk Save) ao fechar o modal** ⭐ NOVO!
+- [x] **Importação Inteligente de HTML do Notion** ⭐ NOVO!
+- [x] **Badges de Status (OK / Em análise) no portal** ⭐ NOVO!
+- [x] **Script Splitter de Reuniões Automático** ⭐ NOVO!
 
 #### 🔄 Em Progresso:
-- [ ] Testar editor PRO completo
 - [ ] Sistema de compartilhamento
 - [ ] Modal de compartilhamento
 - [ ] Portal do cliente
+- [x] **Automação de Importação (Bulk Import Pro)** ✅ CONCLUÍDO!
 
 **Status**: 🎨 Editor PRO completo! Imagens, tabelas, cores, workspace manager funcionando!
 
@@ -135,6 +140,9 @@
 - `src/app/(admin)/admin/clients/[id]/documents/[docId]/page.tsx` - Editar documento
 - `src/app/(admin)/admin/clients/[id]/page.tsx` - Navegação (atualizado)
 - `src/app/(admin)/admin/test-editor/page.tsx` - Página de teste
+- `bulk-import-pro.js` - **Motor de importação inteligente** ⭐
+- `split-notion-meetings.js` - **Divisor automático de reuniões** ⭐
+- `Como_importar_html_paraSaaS.Md` - Guia de importação ⭐
 
 ---
 
@@ -211,7 +219,7 @@
 | **Funções de banco** | 4 |
 | **Tabelas no schema** | 3 (100% criadas) |
 | **Registros no banco** | 20 (1 cliente + 5 workspaces + 14 docs) |
-| **Progresso geral** | ~40% (Fase 1 completa) |
+| **Progresso geral** | ~75% (Fase 3 quase completa) |
 
 ---
 

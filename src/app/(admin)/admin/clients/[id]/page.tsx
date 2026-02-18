@@ -71,12 +71,13 @@ export default function ClientWorkspacePage() {
             const workspaceData = await getClientWorkspace(clientId);
             setWorkspaces(workspaceData as any);
 
-            // Expandir as primeiras 2 pastas por padrão
+            // Expandir pastas que contém documentos por padrão
             if (workspaceData && workspaceData.length > 0) {
-                setExpandedFolders([
-                    workspaceData[0]?.folder_name,
-                    workspaceData[1]?.folder_name
-                ].filter(Boolean));
+                const foldersWithDocs = (workspaceData as any[])
+                    .filter(ws => ws.documents && ws.documents.length > 0)
+                    .map(ws => ws.folder_name);
+
+                setExpandedFolders(foldersWithDocs.length > 0 ? foldersWithDocs : [workspaceData[0]?.folder_name].filter(Boolean));
             }
         } catch (error) {
             console.error('Erro ao carregar dados do cliente:', error);
@@ -215,14 +216,15 @@ export default function ClientWorkspacePage() {
                         {workspaces.map((workspace) => {
                             const isExpanded = expandedFolders.includes(workspace.folder_name);
 
-                            // Determinar ícone baseado no nome da pasta
+                            // Determinar ícone baseado no nome da pasta (busca parcial)
                             let Icon = FolderOpen;
-                            for (const [key, value] of Object.entries(iconMap)) {
-                                if (workspace.folder_name.includes(key)) {
-                                    Icon = value;
-                                    break;
-                                }
-                            }
+                            const folderName = workspace.folder_name;
+
+                            if (folderName.includes("Dados Empresa")) Icon = iconMap["Dados Empresa"];
+                            else if (folderName.includes("Reuniões")) Icon = iconMap["Reuniões"];
+                            else if (folderName.includes("Diagnóstico")) Icon = iconMap["Diagnóstico"];
+                            else if (folderName.includes("Apresentação")) Icon = iconMap["Apresentação"];
+                            else if (folderName.includes("Desenvolvimento")) Icon = iconMap["Desenvolvimento"];
 
                             const color = colorMap[workspace.color] || "text-brand-gold";
 
@@ -271,6 +273,17 @@ export default function ClientWorkspacePage() {
                                                         <span className="text-xs font-medium text-brand-slate">{doc.title}</span>
                                                     </div>
                                                     <div className="flex items-center gap-4">
+                                                        {/* Status Badge */}
+                                                        {doc.status === 'published' ? (
+                                                            <span className="px-1.5 py-0.5 bg-emerald-50 text-emerald-600 text-[8px] font-black uppercase tracking-tighter border border-emerald-100">
+                                                                OK
+                                                            </span>
+                                                        ) : (
+                                                            <span className="px-1.5 py-0.5 bg-brand-cream/50 text-brand-slate/40 text-[8px] font-black uppercase tracking-tighter border border-brand-slate/5">
+                                                                Em análise
+                                                            </span>
+                                                        )}
+
                                                         <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">
                                                             {doc.last_edit || 'Sem edição'}
                                                         </span>

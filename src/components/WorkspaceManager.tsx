@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Plus, Edit2, Trash2, X, Save, FolderPlus, GripVertical, AlertCircle } from "lucide-react";
 import {
     DndContext,
@@ -19,12 +19,13 @@ import {
     useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
+import { createWorkspace, updateWorkspace, deleteWorkspace } from "@/lib/database";
 
 interface Workspace {
     id: string;
     folder_name: string;
     color: string;
-    order_position?: number;
+    order_index?: number;
 }
 
 interface WorkspaceManagerProps {
@@ -128,10 +129,18 @@ export default function WorkspaceManager({
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
 
-    // Ordenar workspaces por order_position
-    const sortedWorkspaces = [...workspaces].sort((a, b) =>
-        (a.order_position || 0) - (b.order_position || 0)
-    );
+    // Estado local para permitir reordenação antes de salvar
+    const [localWorkspaces, setLocalWorkspaces] = useState<Workspace[]>([]);
+
+    // Sincronizar localWorkspaces quando o modal abre ou workspaces mudam externamente
+    useEffect(() => {
+        if (isOpen) {
+            const sorted = [...workspaces].sort((a, b) =>
+                (a.order_index || 0) - (b.order_index || 0)
+            );
+            setLocalWorkspaces(sorted);
+        }
+    }, [isOpen, workspaces]);
 
     const sensors = useSensors(
         useSensor(PointerSensor),
@@ -157,24 +166,26 @@ export default function WorkspaceManager({
         try {
             setLoading(true);
             setError(null);
-            const { supabase } = await import('@/lib/supabase');
 
-            // Pegar o próximo order_position
-            const maxOrder = Math.max(...sortedWorkspaces.map(w => w.order_position || 0), -1);
+            // Usar localWorkspaces para pegar o próximo order_index
+            const maxOrder = Math.max(...localWorkspaces.map(w => w.order_index || 0), -1);
 
-            const { error: insertError } = await supabase
-                .from('workspaces')
-                .insert({
-                    client_id: clientId,
-                    folder_name: newWorkspace.name,
-                    color: newWorkspace.color,
-                    icon: 'FolderOpen',
-                    order_position: maxOrder + 1
-                });
+            const workspaceData: any = {
+                client_id: clientId,
+                folder_name: newWorkspace.name,
+                color: newWorkspace.color,
+                icon: 'FolderOpen'
+            };
 
-            if (insertError) {
-                console.error('Erro detalhado:', insertError);
-                throw new Error(insertError.message);
+            try {
+                await createWorkspace({ ...workspaceData, order_index: maxOrder + 1 });
+            } catch (err: any) {
+                if (err.message?.includes('order_index') || err.message?.includes('column')) {
+                    await createWorkspace(workspaceData);
+                    setError("Workspace criado, mas a coluna 'order_index' não existe no banco.");
+                } else {
+                    throw err;
+                }
             }
 
             setNewWorkspace({ name: "", color: "text-blue-500" });
@@ -196,15 +207,7 @@ export default function WorkspaceManager({
         try {
             setLoading(true);
             setError(null);
-            const { supabase } = await import('@/lib/supabase');
-
-            const { error: updateError } = await supabase
-                .from('workspaces')
-                .update({ folder_name: editName })
-                .eq('id', id);
-
-            if (updateError) throw updateError;
-
+            await updateWorkspace(id, { folder_name: editName });
             setEditingId(null);
             setEditName("");
             onWorkspacesChange();
@@ -224,15 +227,7 @@ export default function WorkspaceManager({
         try {
             setLoading(true);
             setError(null);
-            const { supabase } = await import('@/lib/supabase');
-
-            const { error: deleteError } = await supabase
-                .from('workspaces')
-                .delete()
-                .eq('id', id);
-
-            if (deleteError) throw deleteError;
-
+            await deleteWorkspace(id);
             onWorkspacesChange();
         } catch (error: any) {
             console.error('Erro ao excluir workspace:', error);
@@ -242,36 +237,39 @@ export default function WorkspaceManager({
         }
     }
 
-    async function handleDragEnd(event: DragEndEvent) {
+    // DragEnd agora é APENAS LOCAL
+    function handleDragEnd(event: DragEndEvent) {
         const { active, over } = event;
-
         if (!over || active.id === over.id) return;
 
-        const oldIndex = sortedWorkspaces.findIndex(w => w.id === active.id);
-        const newIndex = sortedWorkspaces.findIndex(w => w.id === over.id);
+        const oldIndex = localWorkspaces.findIndex(w => w.id === active.id);
+        const newIndex = localWorkspaces.findIndex(w => w.id === over.id);
 
-        const newOrder = arrayMove(sortedWorkspaces, oldIndex, newIndex);
+        const newOrder = arrayMove(localWorkspaces, oldIndex, newIndex);
+        setLocalWorkspaces(newOrder);
+    }
 
+    // Função para salvar tudo ao fechar
+    async function handleSaveAndClose() {
+        setLoading(true);
         try {
-            const { supabase } = await import('@/lib/supabase');
-
-            // Atualizar order_position de todos
-            const updates = newOrder.map((workspace, index) => ({
-                id: workspace.id,
-                order_position: index
-            }));
-
-            for (const update of updates) {
-                await supabase
-                    .from('workspaces')
-                    .update({ order_position: update.order_position })
-                    .eq('id', update.id);
+            setError(null);
+            // Atualizar order_index sequencial de acordo com a ordem local
+            for (let i = 0; i < localWorkspaces.length; i++) {
+                try {
+                    await updateWorkspace(localWorkspaces[i].id, { order_index: i });
+                } catch (err: any) {
+                    // Ignorar erros de coluna de ordem se não existirem
+                    if (err.message?.includes('order_index')) break;
+                }
             }
-
             onWorkspacesChange();
-        } catch (error) {
-            console.error('Erro ao reordenar:', error);
-            setError('Erro ao reordenar workspaces. Verifique se a coluna order_position existe no banco.');
+            setIsOpen(false);
+        } catch (error: any) {
+            console.error('Erro ao salvar ordem final:', error);
+            setError(`Erro ao salvar: ${error.message}`);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -363,12 +361,12 @@ export default function WorkspaceManager({
                         {/* Lista de Workspaces */}
                         <div className="p-6 space-y-2">
                             <h3 className="text-xs font-black text-brand-slate uppercase tracking-widest mb-4">
-                                Workspaces Existentes ({sortedWorkspaces.length})
+                                Workspaces Existentes ({localWorkspaces.length})
                                 <span className="text-slate-400 font-normal ml-2">
                                     Arraste para reordenar
                                 </span>
                             </h3>
-                            {sortedWorkspaces.length === 0 ? (
+                            {localWorkspaces.length === 0 ? (
                                 <p className="text-sm text-slate-400 text-center py-8">
                                     Nenhum workspace criado ainda.
                                 </p>
@@ -379,10 +377,10 @@ export default function WorkspaceManager({
                                     onDragEnd={handleDragEnd}
                                 >
                                     <SortableContext
-                                        items={sortedWorkspaces.map(w => w.id)}
+                                        items={localWorkspaces.map(w => w.id)}
                                         strategy={verticalListSortingStrategy}
                                     >
-                                        {sortedWorkspaces.map((workspace) => (
+                                        {localWorkspaces.map((workspace) => (
                                             <SortableWorkspaceItem
                                                 key={workspace.id}
                                                 workspace={workspace}
@@ -402,13 +400,11 @@ export default function WorkspaceManager({
                         {/* Footer */}
                         <div className="sticky bottom-0 bg-white border-t border-brand-slate/10 p-6">
                             <button
-                                onClick={() => {
-                                    setIsOpen(false);
-                                    setError(null);
-                                }}
-                                className="w-full bg-brand-slate text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-brand-gold transition-colors"
+                                onClick={handleSaveAndClose}
+                                disabled={loading}
+                                className="w-full bg-brand-slate text-white px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-brand-gold transition-colors disabled:opacity-50"
                             >
-                                Fechar
+                                {loading ? 'Salvando...' : 'Salvar e Fechar'}
                             </button>
                         </div>
                     </div>
