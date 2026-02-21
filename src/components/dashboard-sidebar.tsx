@@ -16,9 +16,9 @@ import { Logo } from "./logo";
 
 const menuItems = [
     { icon: Home, label: "Overview", href: "/dashboard" },
-    { icon: BarChart3, label: "Personalizado", href: "/dashboard/custom" },
     { icon: Calendar, label: "Evolução", href: "/dashboard/timeline" },
     { icon: FileText, label: "Documentos", href: "/dashboard/documents" },
+    { icon: BarChart3, label: "Painel Estratégico", href: "/dashboard/custom" },
     { icon: Users, label: "Equipe", href: "/dashboard/team" },
 ];
 
