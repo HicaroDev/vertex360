@@ -8,7 +8,9 @@ import {
     LogOut,
     Settings,
     Users,
-    Briefcase
+    Briefcase,
+    Sparkles,
+    Layers
 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -18,7 +20,8 @@ const adminItems = [
     { icon: LayoutDashboard, label: "Overview", href: "/admin/dashboard" },
     { icon: Users, label: "Clientes", href: "/admin/clients" },
     { icon: FileEdit, label: "Motor Vertex (IA)", href: "/admin/ai-engine" },
-    { icon: Briefcase, label: "Metodologia", href: "/admin/methodology" },
+    { icon: Sparkles, label: "Skills", href: "/admin/methodology" },
+    { icon: Layers, label: "Produtos", href: "/admin/products" },
     { icon: BarChart3, label: "Financeiro RV", href: "/admin/finance" },
 ];
 
@@ -48,8 +51,8 @@ export function AdminSidebar() {
                                 <Link
                                     href={item.href}
                                     className={`flex items-center gap-4 px-4 py-3 transition-all duration-200 border-l-2 ${isActive
-                                            ? "border-brand-gold bg-white/5 text-brand-gold"
-                                            : "border-transparent text-slate-400 hover:text-white hover:bg-white/5"
+                                        ? "border-brand-gold bg-white/5 text-brand-gold"
+                                        : "border-transparent text-slate-400 hover:text-white hover:bg-white/5"
                                         }`}
                                 >
                                     <item.icon className="w-5 h-5" />

@@ -1,28 +1,26 @@
 
 const { createClient } = require('@supabase/supabase-js');
-const dotenv = require('dotenv');
-const path = require('path');
+require('dotenv').config({ path: '.env.local' });
 
-dotenv.config({ path: path.join(__dirname, '.env.local') });
-
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
 
 async function checkColumns() {
-    console.log('--- Verificando Colunas de Workspaces ---');
+    console.log('🔍 Verificando estrutura da tabela workspaces...');
+
+    // Tenta pegar um registro para ver as colunas
     const { data, error } = await supabase.from('workspaces').select('*').limit(1);
 
     if (error) {
-        console.error('Erro ao buscar dados:', error.message);
+        console.error('❌ Erro ao ler tabela:', error.message);
         return;
     }
 
     if (data && data.length > 0) {
-        console.log('Colunas encontradas:', Object.keys(data[0]));
+        console.log('✅ Colunas encontradas:', Object.keys(data[0]).join(', '));
     } else {
-        console.log('Tabela vazia ou erro ao identificar colunas. Tentando via RPC ou Metadata...');
-        // Tentativa de inserir um objeto vazio para ver o erro de colunas (hacky but reliable for schema discovery)
-        const { error: insertError } = await supabase.from('workspaces').insert({}).select();
-        console.log('Mensagem de erro de inserção (pode revelar colunas):', insertError?.message);
+        console.log('⚠️ Tabela vazia. Tentando buscar metadados...');
+        // Fallback: tenta inserir um erro proposital para ver colunas sugeridas ou usar rpc se disponível
+        console.log('Dica: Verifique se as colunas [client_id, folder_name, order_position] existem exatamente com esses nomes.');
     }
 }
 

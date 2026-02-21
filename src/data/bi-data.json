@@ -1,0 +1,734 @@
+[
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Faturamento Bruto",
+    "PREVISTO": 500000,
+    "REALIZADO": 250000,
+    "GRÁFICO": "Coluna / Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Faturamento Líquido",
+    "PREVISTO": 420000,
+    "REALIZADO": 210000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Custo da Mercadoria Vendida (CMV)",
+    "PREVISTO": 250000,
+    "REALIZADO": 140000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Lucro Bruto",
+    "PREVISTO": 170000,
+    "REALIZADO": 70000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Margem Bruta (%)",
+    "PREVISTO": 0.34,
+    "REALIZADO": 0.28,
+    "GRÁFICO": "Gauge / Velocímetro"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Lucro Operacional",
+    "PREVISTO": 90000,
+    "REALIZADO": 35000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Lucro Líquido",
+    "PREVISTO": 60000,
+    "REALIZADO": 22000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Margem Líquida (%)",
+    "PREVISTO": 0.12,
+    "REALIZADO": 0.09,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Ponto de Equilíbrio",
+    "PREVISTO": 300000,
+    "REALIZADO": 310000,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Margem de Contribuição (%)",
+    "PREVISTO": 0.45,
+    "REALIZADO": 0.41,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Margem de Lucro por Produto",
+    "PREVISTO": 18,
+    "REALIZADO": 14.5,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Liquidez Corrente",
+    "PREVISTO": 1.8,
+    "REALIZADO": 1.5,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Liquidez Seca",
+    "PREVISTO": 1.2,
+    "REALIZADO": 1,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Liquidez Imediata",
+    "PREVISTO": 0.45,
+    "REALIZADO": 0.38,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Índice de Endividamento Geral",
+    "PREVISTO": 0.55,
+    "REALIZADO": 0.6,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Composição do Endividamento",
+    "PREVISTO": "70% CP / 30% LP",
+    "REALIZADO": "75% CP / 25% LP",
+    "GRÁFICO": "Pizza"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Grau de Alavancagem Financeira",
+    "PREVISTO": 2.1,
+    "REALIZADO": 2.4,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Ciclo Operacional (dias)",
+    "PREVISTO": "85 dias",
+    "REALIZADO": "92 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Ciclo Financeiro (dias)",
+    "PREVISTO": "40 dias",
+    "REALIZADO": "48 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Giro de Estoque (vezes)",
+    "PREVISTO": 4.5,
+    "REALIZADO": 4.1,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Prazo Médio de Recebimento (PMR)",
+    "PREVISTO": "35 dias",
+    "REALIZADO": "42 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Prazo Médio de Pagamento (PMP)",
+    "PREVISTO": "25 dias",
+    "REALIZADO": "28 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Necessidade de Capital de Giro (NCG)",
+    "PREVISTO": 120000,
+    "REALIZADO": 145000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Realizado vs Orçado (%)",
+    "PREVISTO": 1,
+    "REALIZADO": 0.78,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Variação Absoluta",
+    "PREVISTO": 0,
+    "REALIZADO": -110000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Desvio (%)",
+    "PREVISTO": 0,
+    "REALIZADO": -0.22,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Índice de Cobertura de Juros",
+    "PREVISTO": 3.2,
+    "REALIZADO": 2.4,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Capacidade de Pagamento Mensal",
+    "PREVISTO": 80000,
+    "REALIZADO": 62000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "EBITDA",
+    "PREVISTO": 110000,
+    "REALIZADO": 55000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Finanças",
+    "INDICADOR": "Risco de Inadimplência",
+    "PREVISTO": 0.04,
+    "REALIZADO": 0.07,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Tempo de Ciclo (Lead Time)",
+    "PREVISTO": "12 dias",
+    "REALIZADO": "15 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Taxa de Retrabalho (%)",
+    "PREVISTO": 0.03,
+    "REALIZADO": 0.05,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Eficiência Operacional (%)",
+    "PREVISTO": 0.88,
+    "REALIZADO": 0.82,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Produtividade por Colaborador",
+    "PREVISTO": "120 unidades",
+    "REALIZADO": "105 unidades",
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "% com POP Documentado",
+    "PREVISTO": 0.95,
+    "REALIZADO": 0.9,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "% com Fluxograma BPMN",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.85,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Taxa de Conformidade com POPs",
+    "PREVISTO": 0.92,
+    "REALIZADO": 0.87,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Índice de Revisão de Processos",
+    "PREVISTO": 0.8,
+    "REALIZADO": 0.7,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "% com KPIs Ativos",
+    "PREVISTO": 1,
+    "REALIZADO": 0.95,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Frequência de Atualização dos KPIs",
+    "PREVISTO": "30 dias",
+    "REALIZADO": "45 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "% Cumprimento de Metas",
+    "PREVISTO": 0.85,
+    "REALIZADO": 0.72,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Processos",
+    "INDICADOR": "Nº de Reuniões por Processo",
+    "PREVISTO": 2,
+    "REALIZADO": 1,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% de Cargos com Descrição",
+    "PREVISTO": 1,
+    "REALIZADO": 0.92,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% com Matriz de Competências",
+    "PREVISTO": 0.95,
+    "REALIZADO": 0.88,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% com Perfil DISC",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.8,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% de Aderência Estrutural",
+    "PREVISTO": 0.85,
+    "REALIZADO": 0.78,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% com Dossiê Completo",
+    "PREVISTO": 1,
+    "REALIZADO": 0.94,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Conformidade CCT",
+    "PREVISTO": 1,
+    "REALIZADO": 0.97,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Atualização Cadastral",
+    "PREVISTO": 0.95,
+    "REALIZADO": 0.89,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Aderência Legal",
+    "PREVISTO": 0.98,
+    "REALIZADO": 0.93,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Tempo Médio de Integração",
+    "PREVISTO": "12 dias",
+    "REALIZADO": "15 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% com Trilha de Aprendizagem",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.75,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Aderência à Integração",
+    "PREVISTO": 0.85,
+    "REALIZADO": 0.7,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Retenção Experiência",
+    "PREVISTO": 0.95,
+    "REALIZADO": 0.88,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Avaliados 360°",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.72,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice Médio de Desempenho",
+    "PREVISTO": 0.85,
+    "REALIZADO": 0.78,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% com PDI Ativo",
+    "PREVISTO": 0.8,
+    "REALIZADO": 0.65,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Aderência a Treinamentos",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.76,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Satisfação Geral",
+    "PREVISTO": 0.82,
+    "REALIZADO": 0.75,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Confiança na Liderança",
+    "PREVISTO": 0.8,
+    "REALIZADO": 0.7,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Comunicação Interna",
+    "PREVISTO": 0.85,
+    "REALIZADO": 0.78,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Participação no Clima",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.82,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Turnover",
+    "PREVISTO": 0.03,
+    "REALIZADO": 0.05,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Índice de Absenteísmo",
+    "PREVISTO": 0.02,
+    "REALIZADO": 0.035,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Custo Médio por Colaborador",
+    "PREVISTO": 6500,
+    "REALIZADO": 6900,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Tempo Médio de R&S",
+    "PREVISTO": "25 dias",
+    "REALIZADO": "32 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "Relação Colaborador/Liderança",
+    "PREVISTO": 8,
+    "REALIZADO": 10,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Pessoas",
+    "INDICADOR": "% Indicadores RH Atualizados",
+    "PREVISTO": 1,
+    "REALIZADO": 0.92,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Taxa de Conversão Total",
+    "PREVISTO": 0.18,
+    "REALIZADO": 0.14,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Conversão por Etapa",
+    "PREVISTO": 0.25,
+    "REALIZADO": 0.2,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Tempo Médio de Fechamento",
+    "PREVISTO": "18 dias",
+    "REALIZADO": "22 dias",
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Ticket Médio",
+    "PREVISTO": 850,
+    "REALIZADO": 780,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "CAC",
+    "PREVISTO": 180,
+    "REALIZADO": 210,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Retenção de Clientes",
+    "PREVISTO": 0.88,
+    "REALIZADO": 0.82,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "CSAT",
+    "PREVISTO": 0.9,
+    "REALIZADO": 0.84,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "NPS",
+    "PREVISTO": 65,
+    "REALIZADO": 58,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "LTV",
+    "PREVISTO": 3500,
+    "REALIZADO": 3000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Churn",
+    "PREVISTO": 0.025,
+    "REALIZADO": 0.038,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Participação de Mercado",
+    "PREVISTO": 0.12,
+    "REALIZADO": 0.1,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Meta de Vendas Atingida",
+    "PREVISTO": 1,
+    "REALIZADO": 0.82,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Crescimento de Vendas",
+    "PREVISTO": 0.12,
+    "REALIZADO": 0.07,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Vendas Novos vs Repetidos",
+    "PREVISTO": "60/40",
+    "REALIZADO": "55/45",
+    "GRÁFICO": "Pizza"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "Comercial",
+    "INDICADOR": "Eficiência por Vendedor",
+    "PREVISTO": 45000,
+    "REALIZADO": 38000,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Riscos Tratados",
+    "PREVISTO": 0.95,
+    "REALIZADO": 0.88,
+    "GRÁFICO": "Barra"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Código de Conduta Implantado",
+    "PREVISTO": "S",
+    "REALIZADO": "S",
+    "GRÁFICO": "Indicador Simples"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Redução de Desperdício",
+    "PREVISTO": 0.12,
+    "REALIZADO": 0.09,
+    "GRÁFICO": "Linha"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Práticas Sustentáveis",
+    "PREVISTO": 10,
+    "REALIZADO": 7,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Ações Sociais por Ano",
+    "PREVISTO": 6,
+    "REALIZADO": 4,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Investimento Social (% Receita)",
+    "PREVISTO": 0.015,
+    "REALIZADO": 0.011,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Maturidade ESG",
+    "PREVISTO": 4,
+    "REALIZADO": 3,
+    "GRÁFICO": "Gauge"
+  },
+  {
+    "DATA": 46071,
+    "DEPT": "ESG",
+    "INDICADOR": "Ações de Melhoria ESG",
+    "PREVISTO": 12,
+    "REALIZADO": 8,
+    "GRÁFICO": "Coluna"
+  },
+  {
+    "DATA": 46074,
+    "DEPT": "Operacional"
+  }
+]

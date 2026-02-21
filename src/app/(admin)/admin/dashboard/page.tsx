@@ -41,9 +41,7 @@ export default function AdminDashboard() {
     const stats = {
         totalClients: clients.length,
         activeClients: clients.filter(c => c.status === 'Ativo').length,
-        averageProgress: clients.length > 0
-            ? Math.round(clients.reduce((acc, c) => acc + c.progress, 0) / clients.length)
-            : 0,
+        criticalClients: clients.filter(c => c.health === 'Crítico').length,
         healthyClients: clients.filter(c => c.health === 'Ideal').length,
         attentionClients: clients.filter(c => c.health === 'Atenção').length,
     };
@@ -108,11 +106,11 @@ export default function AdminDashboard() {
                                 icon: Users
                             },
                             {
-                                label: "Progresso Médio",
-                                value: `${stats.averageProgress}%`,
-                                color: "bg-brand-gold",
-                                trend: "Vertex 360",
-                                icon: TrendingUp
+                                label: "Críticos",
+                                value: stats.criticalClients.toString(),
+                                color: "bg-red-600",
+                                trend: "Clientes",
+                                icon: AlertCircle
                             },
                             {
                                 label: "Saúde Ideal",
@@ -208,8 +206,8 @@ export default function AdminDashboard() {
                                                         </td>
                                                         <td className="p-6">
                                                             <span className={`text-[9px] font-black px-2 py-1 uppercase tracking-widest ${client.health === 'Ideal' ? 'text-emerald-600 bg-emerald-50' :
-                                                                    client.health === 'Atenção' ? 'text-amber-600 bg-amber-50' :
-                                                                        'text-red-600 bg-red-50'
+                                                                client.health === 'Atenção' ? 'text-amber-600 bg-amber-50' :
+                                                                    'text-red-600 bg-red-50'
                                                                 }`}>
                                                                 {client.health}
                                                             </span>
@@ -264,8 +262,8 @@ export default function AdminDashboard() {
                                         <span className="text-xl font-black text-emerald-600">{stats.activeClients}</span>
                                     </div>
                                     <div className="flex justify-between items-center">
-                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Progresso</span>
-                                        <span className="text-xl font-black text-brand-gold">{stats.averageProgress}%</span>
+                                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Críticos</span>
+                                        <span className="text-xl font-black text-red-600">{stats.criticalClients}</span>
                                     </div>
                                 </div>
                                 <Link
@@ -285,7 +283,7 @@ export default function AdminDashboard() {
                                     href="/admin/methodology"
                                     className="flex items-center justify-between p-3 bg-brand-cream hover:bg-brand-gold hover:text-white transition-all group"
                                 >
-                                    <span className="text-[10px] font-bold uppercase tracking-widest">Metodologia Vertex</span>
+                                    <span className="text-[10px] font-bold uppercase tracking-widest">R&V Skills</span>
                                     <ChevronRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                                 <Link

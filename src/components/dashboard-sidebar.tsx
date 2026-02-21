@@ -16,9 +16,9 @@ import { Logo } from "./logo";
 
 const menuItems = [
     { icon: Home, label: "Overview", href: "/dashboard" },
+    { icon: BarChart3, label: "Personalizado", href: "/dashboard/custom" },
     { icon: Calendar, label: "Evolução", href: "/dashboard/timeline" },
     { icon: FileText, label: "Documentos", href: "/dashboard/documents" },
-    { icon: BarChart3, label: "Financeiro", href: "/dashboard/finance" },
     { icon: Users, label: "Equipe", href: "/dashboard/team" },
 ];
 
@@ -45,8 +45,8 @@ export function DashboardSidebar() {
                                 <Link
                                     href={item.href}
                                     className={`flex items-center gap-4 px-4 py-3 transition-all duration-200 border-l-2 ${isActive
-                                            ? "border-brand-gold bg-white/5 text-brand-gold"
-                                            : "border-transparent text-slate-400 hover:text-white hover:bg-white/5"
+                                        ? "border-brand-gold bg-white/5 text-brand-gold"
+                                        : "border-transparent text-slate-400 hover:text-white hover:bg-white/5"
                                         }`}
                                 >
                                     <item.icon className="w-5 h-5" />
